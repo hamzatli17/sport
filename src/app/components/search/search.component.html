@@ -1,0 +1,14 @@
+<div class="tab-content clearfix box">
+    <div class="" id="">
+        <div class="">
+            <div class="input-field" >
+                <input #searchBox (keyup)="search(searchBox.value)" placeholder="Search" class="form-control" />
+            </div>
+            <div class="container">
+                <a *ngFor="let m of matches | async" class="">
+                    <app-match [match]='m'></app-match>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

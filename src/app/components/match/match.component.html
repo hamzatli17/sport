@@ -1,0 +1,62 @@
+<div class="row" style="margin-bottom: 150px; margin-top:150px">
+  <div class="col-lg-12">
+    <div class="d-flex team-vs">
+      <span class="score"
+        ><span
+          [ngClass]="{
+            rouge: resultMatch(match.scoreOne, match.scoreTwo) == 'lost',
+            vert: resultMatch(match.scoreOne, match.scoreTwo) == 'win',
+            bleu: resultMatch(match.scoreOne, match.scoreTwo) == 'draw'
+          }"
+          >{{ match.scoreOne }}</span
+        >
+        -
+        <span
+          [ngClass]="{
+            rouge: resultMatch(match.scoreTwo, match.scoreOne) == 'lost',
+            vert: resultMatch(match.scoreTwo, match.scoreOne) == 'win',
+            bleu: resultMatch(match.scoreTwo, match.scoreOne) == 'draw'
+          }"
+          >{{ match.scoreTwo }}</span
+        ></span
+      >
+      <div class="team-1 w-50">
+        <div class="team-details w-100 text-center">
+          <img [src]="match.img" alt="Image" class="img-fluid" />
+          <h3>
+            {{ match.teamOne }}
+            <span
+              [ngStyle]="{
+                color: matchColor(resultMatch(match.scoreOne, match.scoreTwo))
+              }"
+              >({{ resultMatch(match.scoreOne, match.scoreTwo) }})</span
+            >
+          </h3>
+          <ul class="list-unstyled" *ngFor='let p of players | reverse'>
+            <li>{{p.fName}} {{p.lName}} ({{p.goalTime}})</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-2 w-50">
+        <div class="team-details w-100 text-center">
+          <img src="assets/images/logo_2.png" alt="Image" class="img-fluid" />
+          <h3>
+            {{ match.teamTwo }}
+            <span
+              [ngStyle]="{
+                color: matchColor(resultMatch(match.scoreTwo, match.scoreOne))
+              }"
+              >({{ resultMatch(match.scoreTwo, match.scoreOne) }})</span
+            >
+          </h3>
+          <ul class="list-unstyled">
+            <li>Macauly Green (3)</li>
+            <li>Arham Stark (8)</li>
+            <li>Stephan Murillo (9)</li>
+            <li>Ned Ritter (5)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

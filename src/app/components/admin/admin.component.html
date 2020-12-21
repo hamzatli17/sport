@@ -1,0 +1,38 @@
+<div class="site-section bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">  
+          <div class="widget-next-match">
+            <app-search></app-search> 
+            <!-- <table class=""> -->
+              <table class="table custom-table">
+              <thead>
+                <tr>
+                  <th>Team 1</th>
+                  <th>Team 2</th>
+                  <th>Score 1</th>
+                  <th>Score 2</th>
+                  <th>Display</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr appTableColor *ngFor='let m of matches'>
+                  <td>{{m.teamOne}}</td>
+                  <td>{{m.teamTwo}}</td>
+                  <td>{{m.scoreOne}}</td>
+                  <td>{{m.scoreTwo}}</td>
+                  <td><button class="btn btn-success" (click)='displayMatch(m._id)'>Display</button></td>
+                  <td><button class="btn btn-info" (click)='editMatch(m._id)'>Edit</button></td>
+                  <td><button class="btn btn-info" (click)='deleteMatch(m._id)'>Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> 
